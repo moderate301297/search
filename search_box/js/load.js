@@ -115,7 +115,7 @@ $(document).ready(function() {
                 
             }
             
-            loadSearch(2)
+            loadSearch(1)
 
 
                 res.forEach(function(element, i) {
