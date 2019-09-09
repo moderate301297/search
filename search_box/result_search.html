@@ -16,7 +16,7 @@
         <header >
             <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="result-box">
-                    <input type="text" class="result-search-txt" name="">
+                    <input type="text" id="search" class="result-search-txt">
                     <a id="submit" class="result-search-btn" href="#">
                         <i class="fas fa-search"></i>
                     </a>
@@ -30,8 +30,15 @@
                 <div id="list-result">
                 </div>
             </div>
-            <div id="detail-title" class="col-md-6"></div>
-            <div id="detail-content" class="col-md-6"></div>
+            <div class="col-md-6 result-detail">
+                    <div>
+                        <div id="detail-title"></div>
+                        <div id="detail-content" ></div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div id="page-navigation" class="col-md-4 navigation">
         </div>
     </body>
 </html>

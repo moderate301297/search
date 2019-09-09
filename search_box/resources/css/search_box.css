@@ -110,7 +110,11 @@ body{
 
 .result {
     border-right: 1px solid #D0D3D4;
-    padding-bottom: 100%;
+    padding-bottom: 5%;
+}
+
+.result-detail {
+    padding-bottom: 95%;
 }
 
 #list-result {
@@ -163,6 +167,25 @@ body{
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+}
+
+.navigation {
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 1%;
+}
+
+.navigation a {
+    font-weight: 400;
+    padding: 0 10px;
+    line-height: 35px;
+}
+
+.navigation::selection {
+    background: #05C;
+    color: #fff;
+    text-shadow: none;
 }
 
 #info-result {
