@@ -24,10 +24,10 @@ body{
 .result-box{
     position: absolute;
     background-color: #FFFFFF;
-    top: 4%;
-    left: 4%;
+    top: 20%;
+    left: 5%;
     height: 40px;
-    width: 600px;
+    width: 580px;
     border: 1px solid #D0D3D4;;
     border-radius: 40px;
     padding: 10px;
@@ -60,10 +60,10 @@ body{
 
 }
 
-.header {
+.navbar-custom {
     background-color: #e5e5e5;
     border-bottom: 1px solid #D0D3D4;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
 }
 
 .result-search-txt{
@@ -74,7 +74,7 @@ body{
     padding: 0;
     color: black;
     font-size: 18px;
-    width: 350px;
+    width: 500px;
 }
 .search-btn{
     color: #3498db;
@@ -113,14 +113,22 @@ body{
     padding-bottom: 100%;
 }
 
-.list-result {
+#list-result {
     margin-left: 10%;
 }
 
-.title-result a {
+#title-result a {
     font-weight: bold;
-    font-size: 20px;
     color: rgb(26, 13, 171);
+    font-size: 20px !important;
+    line-height: 26px;
+}
+
+#detail-title {
+    font-weight: bold;
+    color: rgb(26, 13, 171);
+    font-size: 20px !important;
+    line-height: 26px;
 }
 
 .url-result a {
@@ -129,21 +137,37 @@ body{
 }
 
 .content-result {
-    line-height: 1.57;
+    margin-top: 5px;
+    color: #545454;
+    line-height: 22px;
     word-wrap: break-word;
     font-size: 14px;
-    color: #545454;
     font-family: arial,sans-serif;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
-.detail {
+#detail-content {
+    margin-top: 5px;
+    color: #545454;
+    line-height: 22px;
+    word-wrap: break-word;
     font-size: 14px;
+    font-family: arial,sans-serif;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
-.info-result {
+#info-result {
     margin-left: 6%;
-    margin-top: 2px;
+    margin-top: 6%;
     color: #545454;
     font-family: arial,sans-serif;
     font-size: 14px;

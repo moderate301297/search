@@ -8,41 +8,30 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="resources/css/search_box.css" type="text/css" rel="stylesheet">
-        <script src="js/load.js"></script>
+        <script src="/home/luatcoi/Project/src/search/search_box/js/load.js"></script>
 
         <title> Search </title>
     </head>
     <body class="body-result">
-        <header class="header">
-            <div class="result-box">
-            <input type="text" class="result-search-txt" name="">
-            <a class="result-search-btn" href="/search/search_box/result_search.html">
-                    <i class="fas fa-search"></i>
-            </a> 
-
-            </div>
+        <header >
+            <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+                <div class="result-box">
+                    <input type="text" class="result-search-txt" name="">
+                    <a id="submit" class="result-search-btn" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+            </nav>
         </header>
 
-        <div class="info-result">Khoảng 1000 kết quả</div>
+        <div id="info-result"></div>
         <div class="result-body">
             <div class="col-md-6 result">
-                <div class="list-result">
-                    <div class="title-result" id="1"><a   href="#">Doi tuyen viet Nam ve nuoc</a></div>
-                    <div class="content-result">Nhờ công nhờ cự ly đội hình chặt chẽ, hợp lý.àn bộ cầu thủ, cả chính thức lẫn vào sân từ ghế dự bị, đều chơi cố gắng tới phút cuối.</div>
-                    <div class="space-result"><br></div>
-                    <div class="title-result" id="2"><a   href="#">Doi tuyen viet Nam ve nuoc</a></div>
-                    <div class="content-result">Nhờ công nhờ cự ly đội hình chặt chẽ, hợp lý.àn bộ cầu thủ, cả chính thức lẫn vào sân từ ghế dự bị, đều chơi cố gắng tới phút cuối.</div>
-                    <div class="space-result"><br></div>
-                    <div class="title-result" id="1"><a  href="#">Doi tuyen viet Nam ve nuoc</a></div>
-                    <div class="content-result">Nhờ công nhờ cự ly đội hình chặt chẽ, hợp lý.àn bộ cầu thủ, cả chính thức lẫn vào sân từ ghế dự bị, đều chơi cố gắng tới phút cuối.</div>
-                    <div class="space-result"><br></div>
-                    <div class="title-result" id="1"><a  href="#">Doi tuyen viet Nam ve nuoc</a></div>
-                    <div class="content-result">Nhờ công nhờ cự ly đội hình chặt chẽ, hợp lý.àn bộ cầu thủ, cả chính thức lẫn vào sân từ ghế dự bị, đều chơi cố gắng tới phút cuối.</div>
-                    <div class="space-result"><br></div>
+                <div id="list-result">
                 </div>
             </div>
-            <div id="detail-title" class="col-md-6">Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content </div>
-            <div id="detail-content" class="col-md-6">Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content </div>
+            <div id="detail-title" class="col-md-6"></div>
+            <div id="detail-content" class="col-md-6"></div>
         </div>
     </body>
 </html>
