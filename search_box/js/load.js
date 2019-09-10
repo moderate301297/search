@@ -61,106 +61,85 @@ $(document).ready(function() {
 
             ]
 
+            html_count =  'Khoảng ' + res.length + ' kết quả'
+            document.getElementById('info-result').innerHTML = html_count
+
+            var htmlPagtination = ""
+            htmlPagtination  += '<a class="a-pagination" id="pagination-left" name=1>&laquo;</a>'
+            for (i=1; i <= res.length / 10 + 1; i ++) {
+                htmlPagtination  += '<a class="a-pagination" name="'+i+'">'+i+'</a>'
+            }
+            htmlPagtination  += '<a class="a-pagination" id="pagination-right" name=2>&raquo;</a>'
+            document.getElementById('pagination').innerHTML = htmlPagtination
+
+            $('.a-pagination').click(function(){
+                pagination(this.name)
+            })
+
+            function pagination(value){
+
+                loadSearch(value)
+
+                var jsonLength = 0;
+                if(res.length/10 > parseInt(res.length/10)){
+                    jsonLength = parseInt(res.length/10) +1
+                }else {
+                    jsonLength = parseInt(res.length/10)
+                }
+
+               if(parseInt(value)==1){
+                    $("#pagination-left").attr("name", 1);
+                    $('#pagination-right').attr("name", 2);
+               }else if(parseInt(value) == jsonLength){
+                    $("#pagination-left").attr("name", jsonLength-1);
+                    $('#pagination-right').attr("name", jsonLength);
+               }else {
+                    $("#pagination-left").attr("name", parseInt(value)-1);
+                    $('#pagination-right').attr("name", parseInt(value)+1);
+               }
+
+               loadDetail()
+            }
+
+            function loadSearch(value){
                 var html = ''
-                html_count =  'Khoảng ' + res.length + ' kết quả'
-                document.getElementById('info-result').innerHTML = html_count
+                value = value*10 -10
+                if(value+10<res.length){
+                    for (i = value; i < value + 10; i ++) {
 
-                if (res.length > 10) {
-
-                    current = 1
-                    console.log("tessst")
-                    html_current = '<span id="numbers'+ current + '" class="page-numbers current" href="#">' + current + '</span>'
-                    var html_page = ''
-
-                    for (i=1; i <= res.length % 10 + 1; i ++) {
-                        if ( current != i) {
-                            html_page  += '<a id="numbers' +  i + '" class="page-numbers" href="#">' + i +'</a>'
-                        } else {
-                            html_page += html_current
-                        }
-
-                    }
-
-                    if (current != res.length % 10 + 1) {
-                        html_next = '<a class="next page-numbers" href="#">Next  →</a>'
-                    }
-
-                    html_page += html_next
-
-                    document.getElementById('page-navigation').innerHTML = html_page
-                    for (i = 0; i < 10; i ++) {
-                        
                         html += '<div id="item'+ i + '">'
                         html += '<div id="title-result" ><a href="#">' + res[i].title + '</a></div>'
                         html += '<div class="content-result">' + res[i].content + '</div>'
                         html += '<div class="space-result"><br></div></div>'
                     }
-                    document.getElementById('list-result').innerHTML = html
+                }else {
+                    for (i = value; i < res.length; i ++) {
 
-                    test = [1, 2]
-
-                    
-
-                    test.forEach(function(element, i) {
-                        console.log("a", i)
-                        h = i + 1
-                        $('#numbers' + h).click(function() {
-                            current = h
-                            k = res.length % 10
-                            if (current < k + 1) { 
-                                console.log("current", current)
-                                html = ''
-                                for (i = 0; i < 10; i ++) {
-                                    if ( current == 1) {
-                                            html += '<div id="item'+ i + '">'
-                                            html += '<div id="title-result" ><a href="#">' + res[i].title + '</a></div>'
-                                            html += '<div class="content-result">' + res[i].content + '</div>'
-                                            html += '<div class="space-result"><br></div></div>'
-                                    } else {
-                                            j = current * 10 - 10
-                                            html += '<div id="item'+ j + '">'
-                                            html += '<div id="title-result" ><a href="#">' + res[j].title + '</a></div>'
-                                            html += '<div class="content-result">' + res[j].content + '</div>'
-                                            html += '<div class="space-result"><br></div></div>'
-                                    }
-                                }
-                            } else {
-                                console.log("current2", current)
-                                html = ''
-                                count = res.length - (res.length % 10) * 10
-                                for (i = 0; i < count; i ++) {
-                                    j = current * 10 - 10
-                                    html += '<div id="item'+ j + '">'
-                                    html += '<div id="title-result" ><a href="#">' + res[j].title + '</a></div>'
-                                    html += '<div class="content-result">' + res[j].content + '</div>'
-                                    html += '<div class="space-result"><br></div></div>'
-                                }
-                            }
-                            document.getElementById('list-result').innerHTML = html
-
-                        })
-                    })
-
-                } else {
-                    console.log("aa")
-                    res.forEach(function(element, i) {
                         html += '<div id="item'+ i + '">'
-                        html += '<div id="title-result" ><a href="#">' + element.title + '</a></div>'
-                        html += '<div class="content-result">' + element.content + '</div>'
+                        html += '<div id="title-result" ><a href="#">' + res[i].title + '</a></div>'
+                        html += '<div class="content-result">' + res[i].content + '</div>'
                         html += '<div class="space-result"><br></div></div>'
-                    });
-                    document.getElementById('list-result').innerHTML = html
+                    }
                 }
+                
+                document.getElementById('list-result').innerHTML = html
+                
+            }
+            
+            loadSearch(1)
 
+            function loadDetail(){
                 res.forEach(function(element, i) {
+                    console.log(i)
                     $('#item' + i).click(function() {
-                        console.log("test3")
                 
                         document.getElementById('detail-title').innerHTML = res[i].title
                         document.getElementById('detail-content').innerHTML = res[i].content
                     })
                 })
+            }
                 
+            loadDetail()
 
 
         //     },
