@@ -114,7 +114,7 @@ body{
 }
 
 .result-detail {
-    padding-bottom: 95%;
+    padding-bottom: 60%;
 }
 
 #list-result {
@@ -201,8 +201,6 @@ body{
   }
   
   .pagination a {
-    color: black;
-    float: left;
     padding: 8px 16px;
     text-decoration: none;
   }
