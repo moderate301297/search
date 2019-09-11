@@ -1,11 +1,20 @@
 $(document).ready(function() {
-
+    var type_search = "description";
     $.ajaxSetup({ cache: false });
 
-    $('#search').keyup(function(){
+    $('.type-search').click(function(){
+        $('#smart-search').attr('placeholder', 'Tìm kiếm theo '+ this.name)
+        type_search = this.name
+        
+    })
+
+    $('#smart-search').keyup(function(){
+        $('#dropdown').hide()
+        $('#submit').css('margin-left', '30px')
+        $('#smart-search').css('margin-left', '0px')
         $('#result').html('');
         $('#live-search').val('');
-        var searchField = $('#search').val();
+        var searchField = $('#smart-search').val();
         var expression = new RegExp(searchField, "i");
         // $.ajax
         var res = [ 
@@ -30,7 +39,7 @@ $(document).ready(function() {
 
         $('#live-search').on('click', 'li', function() {
             var click_text = $(this).text().split('|');
-            $('#search').val($.trim(click_text[0]));
+            $('#smart-search').val($.trim(click_text[0]));
             $("#live-search").html('');
            });
 
@@ -40,28 +49,29 @@ $(document).ready(function() {
 
     $('div').click(function(){
         document.getElementById('live-search').innerHTML = ''
-
+        $('#dropdown').show()   
+        $('#submit').css('margin-left', '10px')
+        $('#smart-search').css('margin-left', '10px')
     })
 
-    $('#search').keypress(function(event){
+    $('#smart-search').keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
-            smartSearch($('#search').val())
+            smartSearch(type_search, $('#smart-search').val())
         }
     });
 
     $('#submit').click(function() {
-        smartSearch($('#search').val())
+        smartSearch(type_search, $('#smart-search').val())
     })
 
-    function smartSearch(url){
-        var res = []
-        var key_search = $("#search").val();
+    function smartSearch(type ,text){
+        var key_search = $("#smart-search").val();
         if (key_search == '' ) {
         } else {
             $.ajax({
                 type: "get",
-                url: "http://192.168.1.2:8090/rest/search/description/" + url,
+                url: "http://192.168.1.2:8090/rest/search/"+ type+ "/" + text,
                 success: function(res) {
                     html_count =  '<p>Khoảng ' + res.length + ' kết quả</p>'
                     document.getElementById('info-result').innerHTML = html_count
@@ -186,34 +196,11 @@ $(document).ready(function() {
                             })
                         })
                     }
-                        
                     loadDetail()
                 }
             })
             
-           
-
-
-        //     },
-        //     error: function() {
-        //         console.log("error")
-        //     },
-        // })
         }
     }
-
-
-
-    // $(window).scroll(function(){
-    //     var scroll = $(window).scrollTop();
-    //       if (scroll > 30) {
-    //         $(".header").css("position;" , "fixed"); 
-    //       }
-    //       else{
-    //         $(".header").css("position;" , "fixed");    
-    //       }
-    //   })
-
-   
 
 })

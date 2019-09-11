@@ -28,9 +28,8 @@ body{
     top: 20%;
     left: 5%;
     height: 40px;
-    width: 580px;
+    width: 600px;
     border: 1px solid #D0D3D4;;
-    border-radius: 40px;
     padding: 10px;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 2px 4px 0px rgba(0,0,0,0.14), 0px 2px 4px 0px rgba(0,0,0,0.12);
 }
@@ -76,6 +75,7 @@ body{
     color: black;
     font-size: 18px;
     width: 500px;
+    margin-left: 10px;
 }
 .search-btn{
     color: #3498db;
@@ -93,7 +93,8 @@ body{
 
 .result-search-btn{
     color: #3498db;
-    float: right;
+    float: left;
+    border: 0px !important;
     width: 39px;
     height: 38px;
     border-radius: 40px;
@@ -103,6 +104,28 @@ body{
     align-items: center;
     margin-top: -10px;
     margin-right: -10px;
+    margin-left: 10px;
+}
+
+.result-type-search-btn{
+    color: #3498db;
+    float: left;
+    width: 39px;
+    height: 38px;
+    border-radius: 40px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.ul-type-search {
+    margin-left: -10px;
+    margin-top: 27px;
+    width: 600px;
 }
 
 .result-body {
@@ -249,6 +272,11 @@ body{
 	margin-bottom: 25px;
 }
 
+.type-search {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
 .force-overflow
 {
 	min-height: 450px;
@@ -280,9 +308,9 @@ body{
 	background-image: -webkit-gradient(linear,
 									   left bottom,
 									   left top,
-									   color-stop(0.44, rgb(122,153,217)),
-									   color-stop(0.72, rgb(73,125,189)),
-									   color-stop(0.86, rgb(28,58,148)));
+									   color-stop(0.44, rgb(255,140,0)),
+									   color-stop(0.72, rgb(255,165,0)),
+									   color-stop(0.86, rgb(255,215,0)));
 }
 
 .list-info {
@@ -301,7 +329,7 @@ body{
 }
 
 #live-search {
-    margin-top: 5%;
+    margin-top: 27px;
     margin-left: -2%;
     position: absolute;
     width: 100%;

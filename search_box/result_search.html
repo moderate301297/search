@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="resources/css/search_box.css" type="text/css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="js/load.js"></script>
 
         <title> Search </title>
@@ -20,7 +21,15 @@
                     <img src="image/logo.png" class="logo" alt="">
                 </div>
                 <div class="result-box" >
-                    <input type="text" id="search" class="result-search-txt">
+                    <div id="dropdown" class="dropdown">
+                        <span class="  dropdown-toggle result-type-search-btn" type="button" data-toggle="dropdown">
+                        <span class="caret"></span></span>
+                        <ul class="dropdown-menu ul-type-search ">
+                        <li><a class="type-search" name="title" href="#">Tìm kiếm theo title</a></li>
+                        <li><a class="type-search" name="description" href="#">Tìm kiếm theo description</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" id="smart-search" class="result-search-txt" placeholder="Tìm kiếm theo description">
                     <a id="submit" class="result-search-btn" href="#">
                         <i class="fas fa-search"></i>
                     </a>
@@ -37,7 +46,7 @@
             <div class="col-md-7 result-detail">
                     <div>
                         <div id="detail-title"></div>
-                        <div id="detail-content" ></div>
+                        <div id="detail-content" ></div>    
                     </div>
             </div>
 
