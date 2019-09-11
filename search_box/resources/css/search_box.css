@@ -22,6 +22,7 @@ body{
 }
 
 .result-box{
+    margin-left: 4%;
     position: absolute;
     background-color: #FFFFFF;
     top: 20%;
@@ -63,7 +64,7 @@ body{
 .navbar-custom {
     background-color: #e5e5e5;
     border-bottom: 1px solid #D0D3D4;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
 }
 
 .result-search-txt{
@@ -114,7 +115,7 @@ body{
 }
 
 .result-detail {
-    padding-bottom: 60%;
+    padding-bottom: 37%;
 }
 
 #list-result {
@@ -174,6 +175,7 @@ body{
     text-align: center;
     font-size: 16px;
     margin-bottom: 1%;
+    margin-left: 30%;
 }
 
 .navigation a {
@@ -182,32 +184,134 @@ body{
     line-height: 35px;
 }
 
-.navigation::selection {
-    background: #05C;
-    color: #fff;
-    text-shadow: none;
-}
 
 #info-result {
-    margin-left: 6%;
-    margin-top: 6%;
+    margin-left: 10%;
+    margin-top: 3%;
     color: #545454;
     font-family: arial,sans-serif;
     font-size: 14px;
 }
 
+.info-search {
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+
 .pagination {
     display: inline-block;
   }
-  
-  .pagination a {
+
+.pagination a {
+    color: black !important;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a {
+    color: black !important;
+    float: left;
     padding: 8px 16px;
     text-decoration: none;
   }
-  
+
   .pagination a.active {
     background-color: #4CAF50;
     color: white;
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .a-pagination {
+    color: black !important;
+      
+  }
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+.positionBottom {
+  
+  position:fixed;
+}
+.logo {
+  margin-top: 3%;
+  margin-left: 3%;
+  height: 30%;
+  width: 18%;
+}
+
+.scrollbar
+{
+    margin-left: 10px;
+    margin-right: 10%;
+	float: left;
+	height: 700px;
+	width: 100%;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+
+#style-7::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+#style-7::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-7::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
+
+.list-info {
+    margin-left: 6%;
+}
+
+.head-result p {
+    font-weight: bold;
+    color: #006621;
+    font-size: 15px !important;
+    line-height: 26px;
+}
+
+.head-result {
+    margin-bottom: -15px;
+}
+
+#live-search {
+    margin-top: 5%;
+    margin-left: -2%;
+    position: absolute;
+    width: 100%;
+    max-width:870px;
+    cursor: pointer;
+    overflow-y: auto;
+    max-height: 400px;
+    box-sizing: border-box;
+    z-index: 1001;
+   }
+   .link-class:hover{
+    background-color:#f1f1f1;
+   }

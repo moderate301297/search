@@ -12,25 +12,29 @@
 
         <title> Search </title>
     </head>
-    <body class="body-result">
+    <body class="body-result" >
+        <div id="section">$nbsp</div>
         <header >
-            <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-                <div class="result-box">
+            <nav class="navbar-custom navbar-fixed-top">
+                <div class="col-md-4">
+                    <img src="image/logo.png" class="logo" alt="">
+                </div>
+                <div class="result-box" >
                     <input type="text" id="search" class="result-search-txt">
                     <a id="submit" class="result-search-btn" href="#">
                         <i class="fas fa-search"></i>
                     </a>
+                    <ul class="list-group" id="live-search"></ul>
                 </div>
             </nav>
         </header>
-
-        <div id="info-result"></div>
+        <div class="info-result" id="info-result"></div>
         <div class="result-body">
-            <div class="col-md-6 result">
-                <div id="list-result">
-                </div>
+            <div class="col-md-4 list-info">
+                    <div id="list-result"></div>
+                    <div id="pagination" class="col-md-4 navigation"></div>
             </div>
-            <div class="col-md-6 result-detail">
+            <div class="col-md-7 result-detail">
                     <div>
                         <div id="detail-title"></div>
                         <div id="detail-content" ></div>
@@ -39,7 +43,8 @@
 
         </div>
         <div class="col-md-4"></div>
-        <div id="pagination" class="col-md-4 navigation pagination">
-        </div>
+        
+
+        
     </body>
 </html>
