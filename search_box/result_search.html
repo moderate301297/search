@@ -8,38 +8,58 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="resources/css/search_box.css" type="text/css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="js/load.js"></script>
 
         <title> Search </title>
     </head>
-    <body class="body-result">
+    <body class="body-result" >
+        <div id="section">$nbsp</div>
         <header >
-            <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-                <div class="result-box">
-                    <input type="text" id="search" class="result-search-txt">
-                    <a id="submit" class="result-search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
+            <nav class="navbar-custom navbar-fixed-top">
+                <div>
+                        <div class="col-md-4">
+                                <H3>Smart Search</H3>
+                            </div>
+                            <div class="result-box" >
+                                <div id="dropdown" class="dropdown">
+                                    <span class="  dropdown-toggle result-type-search-btn" type="button" data-toggle="dropdown">
+                                    <span class="caret"></span></span>
+                                    <ul class="dropdown-menu ul-type-search ">
+                                    <li><a class="type-search" name="fuzzy" href="#">Tìm kiếm theo fuzzy</a></li>
+                                    <li><a class="type-search" name="content" href="#">Tìm kiếm theo content</a></li>
+
+                                    </ul>
+                                </div>
+                                <input type="text" id="smart-search" class="result-search-txt" placeholder="Tìm kiếm theo fuzzy">
+                                <a id="submit" class="result-search-btn" href="#">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <ul class="list-group" id="live-search"></ul>
+                            </div>
                 </div>
+                
             </nav>
         </header>
-
-        <div id="info-result"></div>
-        <div class="result-body">
-            <div class="col-md-6 result">
-                <div id="list-result">
+        <br>
+        <div class="info-result" id="info-result"></div>
+        <div>
+                <!-- <div class="col-md-1"> -->
+                <div class="col-md-4 list-info">
+                        <div id="list-result"></div>
+                        <div id="pagination" class="col-md-4 navigation"></div>
                 </div>
-            </div>
-            <div class="col-md-6 result-detail">
-                    <div>
-                        <div id="detail-title"></div>
-                        <div id="detail-content" ></div>
-                    </div>
-            </div>
+                <div class="col-md-7 result-detail">
+                        <div>
+                            <div id="detail-title" class="detail-content"></div>
+                            <div id="detail-content" ></div>    
+                        </div>
+                </div>
+        </div>
+        <div class="col-md-12" id="related">
+        </div>
+ 
 
-        </div>
-        <div class="col-md-4"></div>
-        <div id="pagination" class="col-md-4 navigation pagination">
-        </div>
+        
     </body>
 </html>

@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #8acaf5;
+}
+
+.body-result {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+}
+
+.search-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.result-box{
+    margin-left: 4%;
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 20%;
+    left: 5%;
+    height: 40px;
+    width: 600px;
+    border: 1px solid #D0D3D4;;
+    padding: 10px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 2px 4px 0px rgba(0,0,0,0.14), 0px 2px 4px 0px rgba(0,0,0,0.12);
+}
+
+.search-box:hover > .search-btn{
+    background: white;
+
+    
+}
+
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 116px;
+
+}
+
+.btn-file {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-left: -20%;
+    margin-top: 25px;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.h3-smart-search {
+    margin-top: 5%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.select-box {
+    display: none ;
+}
