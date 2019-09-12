@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="./resources/css/search_box.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="resources/css/search_box_file.css" type="text/css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="js/search_file.js"></script>
+
+        <title> Search </title>
+    </head>
+    <body class="body-result" >
+        <div id="section">$nbsp</div>
+        <header >
+            <nav class="navbar-custom navbar-fixed-top">
+                <div>
+                        <div class="col-md-4">
+                                <H3 class="h3-smart-search">Smart Search</H3>
+                            </div>
+                            <span class="btn btn-primary btn-file">Upload file 
+                                    <input type="file" id="load-file" >
+                                </span>
+                </div>
+                
+            </nav>
+        </header>
+
+            <div>
+                <div class="col-md-4">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div id="select-box" class="select-box">
+                            <p class="text-center">Chọn trọng số cho điều kiện</p>
+                            <div>   
+                                <br>
+                                    <div class="col-md-10">
+                                            chênh lệch thu chi
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel1">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            tình hình tài sản
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel2">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            công nợ
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel3">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            thu nhập thuần
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel4">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            tổng vốn nhu cầu
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel5">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            đóng góp
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel6">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            đề nghị vay
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel7">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            thời hạn
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel8">
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="col-md-10">
+                                            TSTC
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="sel9">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                        <div class="col-md-10">
+                                                nhận xét
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="sel9">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                            <div class="col-md-10">
+                                                    Hình thức cấp tín dụng
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="sel9">
+                                                            <option>0</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                            <option>9</option>
+                                                            <option>10</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <div>
+                                    <button type="button" id="submit-pushh-file" class="btn btn-success">Success</button>
+                                </div>
+            
+                    </div>
+
+            </div>
+        
+            <div class="col-md-3 list-info">
+                        
+            </div>
+            <div class="col-md-5 result-detail">
+            
+            </div>
+        </div>
+    </body>
+</html>

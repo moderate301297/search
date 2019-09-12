@@ -150,11 +150,16 @@ body{
     color: rgb(26, 13, 171);
     font-size: 20px !important;
     line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical
 }
 
 #detail-title {
     font-weight: bold;
-    color: rgb(26, 13, 171);
+    color: rgb(0, 0, 0);
     font-size: 20px !important;
     line-height: 26px;
 }
@@ -177,6 +182,7 @@ body{
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    
 }
 
 #detail-content {
@@ -279,6 +285,7 @@ body{
 
 .force-overflow
 {
+    margin-right: 10%;
 	min-height: 450px;
 }
 
@@ -314,7 +321,7 @@ body{
 }
 
 .list-info {
-    margin-left: 6%;
+    margin-left: -2%;
 }
 
 .head-result p {
@@ -343,3 +350,31 @@ body{
    .link-class:hover{
     background-color:#f1f1f1;
    }
+
+   .related {
+    display: flex;
+    color: #3498db;
+}
+
+.btn-file {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-left: 8%;
+    margin-top: 22px;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

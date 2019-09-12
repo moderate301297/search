@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    var type_search = "description";
+
+    var type_search = "fuzzy";
     $.ajaxSetup({ cache: false });
 
     $('.type-search').click(function(){
@@ -8,33 +9,56 @@ $(document).ready(function() {
         
     })
 
+    $('#smart-search').click(function(){
+
+    })
+
+
     $('#smart-search').keyup(function(){
         $('#dropdown').hide()
-        $('#submit').css('margin-left', '30px')
+        $('#submit').css('margin-left', '40px')
         $('#smart-search').css('margin-left', '0px')
         $('#result').html('');
         $('#live-search').val('');
         var searchField = $('#smart-search').val();
         var expression = new RegExp(searchField, "i");
-        // $.ajax
+        
+        
         var res = [ 
             {"title":"dai duong"},
+            {"title":"dai duong2"},
+            {"title":"dai duong3"},
             {"title":"tien khuong"},
-            {"title":"tien khuong xau vl"},
-            {"title":"tien khuong so khanh"},
+            {"title":"tien khuong2"},
+            {"title":"tien khuong3"},
             {"title":"van luat"},
-            {"title":"thi quynh Ngáo"}
+            {"title":"thi quynh"}
         ]
         if(expression=='/(?:)/i'){
                     document.getElementById('live-search').innerHTML = '<p></p>'
         }else {
-            document.getElementById('live-search').innerHTML = ''
-            $.each(res, function(key, value){
-                if (value.title.search(expression) != -1)
-                {
-                    $('#live-search').append('<li class="list-group-item link-class"> '+value.title+'</li>');
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({"mgs":"đại hội"}),
+                dataType: 'json',
+                cache: false,
+                url: "http://192.168.1.83:5003/check",
+                success: function(res){
+                    console.log(res)
+
+                    document.getElementById('live-search').innerHTML = ''
+                    $.each(res, function(key, value){
+                        if (value.data.search(expression) != -1)
+                        {
+                            $('#live-search').append('<li class="list-group-item link-class"> '+value.data+'</li>');
+                        }
+                    })
+
                 }
             })
+
+           
         }
 
         $('#live-search').on('click', 'li', function() {
@@ -58,11 +82,13 @@ $(document).ready(function() {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             smartSearch(type_search, $('#smart-search').val())
+            // loadRelated($('#smart-search').val())
         }
     });
 
     $('#submit').click(function() {
         smartSearch(type_search, $('#smart-search').val())
+        // loadRelated($('#smart-search').val())
     })
 
     function smartSearch(type ,text){
@@ -71,7 +97,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: "get",
-                url: "http://192.168.1.2:8090/rest/search/"+ type+ "/" + text,
+                url: "http://c60a8637.ngrok.io/rest/search/"+ type+ "/" + text,
                 success: function(res) {
                     html_count =  '<p>Khoảng ' + res.length + ' kết quả</p>'
                     document.getElementById('info-result').innerHTML = html_count
@@ -120,7 +146,6 @@ $(document).ready(function() {
                             $('#pagination-right').attr("name", parseInt(value)+1);
                        }
         
-        
                         $('.a-pagination').click(function(){
                             pagtination(this.name)
                             loadSearch(this.name)
@@ -142,7 +167,6 @@ $(document).ready(function() {
                         }else {
                             jsonLength = parseInt(res.length/10)
                         }
-        
                        if(parseInt(value)==1){
                             $("#pagination-left").attr("name", 1);
                             $('#pagination-right').attr("name", 2);
@@ -164,18 +188,16 @@ $(document).ready(function() {
                         if(value+10<res.length){
                             for (i = value; i < value + 10; i ++) {
                                 html += '<div id="item'+ i + '" class="info-search">'
-                                html += '<div id="title-result" ><a href="#">' + res[i].title + '</a></div>'
-                                html += '<div class="head-result" ><p>' + res[i].url + '</p></div>'
-                                html += '<div class="content-result">' + res[i].description + '</div>'
+                                html += '<div id="title-result" ><a href="#">' + res[i].content + '</a></div>'
+                                html += '<div class="head-result" ><p>' + res[i].tag + '</p></div>'
                                 html += '<div class="space-result"><br></div></div>'
                             }
                         }else {
                             for (i = value; i < res.length; i ++) {
         
                                 html += '<div id="item'+ i + '" class="info-search">'
-                                html += '<div id="title-result" ><a href="#">' + res[i].title + '</a></div>'
-                                html += '<div class="head-result" ><p>' + res[i].url + '</p></div>'
-                                html += '<div class="content-result">' + res[i].description + '</div>'
+                                html += '<div id="title-result" ><a href="#">' + res[i].content + '</a></div>'
+                                html += '<div class="head-result" ><p>' + res[i].tag + '</p></div>'
                                 html += '<div class="space-result"><br></div></div>'
                             }
                         }
@@ -190,9 +212,15 @@ $(document).ready(function() {
                     function loadDetail(){
                         res.forEach(function(element, i) {
                             $('#item' + i).click(function() {
-                        
-                                document.getElementById('detail-title').innerHTML = res[i].title
-                                document.getElementById('detail-content').innerHTML = res[i].description
+                                html = ''
+                                html += '<div class="scrollbar" id="style-7">'
+                                html += '<div class="force-overflow">'
+                                
+                                html += res[i].content
+
+                                html += '</div></div>'
+                                document.getElementById('detail-title').innerHTML = html
+                                // document.getElementById('detail-content').innerHTML = res[i].description
                             })
                         })
                     }
@@ -202,5 +230,37 @@ $(document).ready(function() {
             
         }
     }
+
+    // function loadRelated(value){
+    //     var res = [
+    //         {"related": 'dai duong'},
+    //         {"related": 'dai duong2'},
+    //         {"related": 'dai duong3'},
+    //         {"related": 'dai duong4'},
+    //         {"related": 'dai duong5'},
+    //         {"related": 'dai duong6'},
+    //     ]
+    //     var html ='';
+    //     html += '<div id="title-result" class="col-md-1" ></div>'
+    //     html += '<div class="col-md-4">'
+    //     html += '<div><h3>Searches related to<b> '+value+'</b></h3></div>'
+    //     for (i = 0; i < res.length ; i+=3) {
+    //         html += '<div class="col-md-6">'
+    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i].related + '</a></p></div>'
+    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i+1].related + '</a></p></div>'
+    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i+2].related + '</a></p></div>'
+    //         html += '</div>'
+    //     }
+    //     html += '</div>'
+    //     html += '<div id="title-result" class="col-md-7" ></div>'
+    //     document.getElementById('related').innerHTML = html
+
+    //     $('.related-search').click(function(){
+    //         $('#smart-search').val(this.text)
+    //         smartSearch(type_search, this.text)
+    //     })
+
+    // }
+
 
 })
