@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var type_search = "fuzzy";
+    var type_search = "content";
     $.ajaxSetup({ cache: false });
 
     $('.type-search').click(function(){
@@ -14,6 +14,7 @@ $(document).ready(function() {
     })
 
 
+
     $('#smart-search').keyup(function(){
         $('#dropdown').hide()
         $('#submit').css('margin-left', '40px')
@@ -23,17 +24,6 @@ $(document).ready(function() {
         var searchField = $('#smart-search').val();
         var expression = new RegExp(searchField, "i");
         
-        
-        var res = [ 
-            {"title":"dai duong"},
-            {"title":"dai duong2"},
-            {"title":"dai duong3"},
-            {"title":"tien khuong"},
-            {"title":"tien khuong2"},
-            {"title":"tien khuong3"},
-            {"title":"van luat"},
-            {"title":"thi quynh"}
-        ]
         if(expression=='/(?:)/i'){
                     document.getElementById('live-search').innerHTML = '<p></p>'
         }else {
@@ -76,6 +66,18 @@ $(document).ready(function() {
         $('#dropdown').show()   
         $('#submit').css('margin-left', '10px')
         $('#smart-search').css('margin-left', '10px')
+        
+        if( $('#div-dropdown').attr('class')==='dropdown open'){
+            $('#result-box').css('border-radius', '40px')
+        }
+
+    })
+
+    $('#dropdown').click(function(){
+        $('#result-box').css('border-radius', '20px')
+        $('#result-box').css('border-bottom-left-radius', 'inherit')
+        $('#result-box').css('border-bottom-right-radius', 'inherit')
+
     })
 
     $('#smart-search').keypress(function(event){
@@ -92,12 +94,13 @@ $(document).ready(function() {
     })
 
     function smartSearch(type ,text){
+        document.getElementById('list-result').innerHTML = ''
         var key_search = $("#smart-search").val();
         if (key_search == '' ) {
         } else {
             $.ajax({
                 type: "get",
-                url: "http://c60a8637.ngrok.io/rest/search/"+ type+ "/" + text,
+                url: "https://a687ebc9.ngrok.io/rest/search/"+ type+ "/" + text,
                 success: function(res) {
                     html_count =  '<p>Khoảng ' + res.length + ' kết quả</p>'
                     document.getElementById('info-result').innerHTML = html_count
@@ -219,7 +222,7 @@ $(document).ready(function() {
                                 html += res[i].content
 
                                 html += '</div></div>'
-                                document.getElementById('detail-title').innerHTML = html
+                                document.getElementById('content-detail').innerHTML = html
                                 // document.getElementById('detail-content').innerHTML = res[i].description
                             })
                         })
@@ -261,6 +264,14 @@ $(document).ready(function() {
     //     })
 
     // }
+
+
+    $('#upload-file').click(function(){
+        $('#result-box').hide()
+        $('#smart-search-file').show()
+
+    })
+
 
 
 })

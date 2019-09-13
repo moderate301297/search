@@ -61,10 +61,9 @@ body{
 }
 
 .btn-file {
-    float: left;
     position: relative;
     overflow: hidden;
-    margin-left: -20%;
+    margin-right: 5%;
     margin-top: 25px;
 }
 .btn-file input[type=file] {
@@ -93,4 +92,48 @@ body{
 
 .select-box {
     display: none ;
+}
+
+.upload-file {
+    margin-top: 2%;
+ }
+
+.title-upload {
+    font-size: 24px;
+    color: #609;
+    font-weight: bold;
+ }
+
+
+#load-file {
+    font-size: 20px;
+    background-color: #f58220;
+    margin-left: -45%;
+ }
+ 
+#myCheck {
+    margin-left: -45%;
+ }
+
+#submit-pushh-file {
+    margin-left: -65%;
+}
+
+.body-box {
+    margin-top: 8%;
+    font-weight: bold;
+}
+
+.box-left {
+    background-color: #e5e5e5;
+    margin-left: 11% ;
+    height: 300px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 2px 4px 0px rgba(0,0,0,0.14), 0px 2px 4px 0px rgba(0,0,0,0.12);
+}
+
+.box-right {
+    background-color: #e5e5e5;
+    margin-left: 11% ;
+    height: 300px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 2px 4px 0px rgba(0,0,0,0.14), 0px 2px 4px 0px rgba(0,0,0,0.12);
 }
