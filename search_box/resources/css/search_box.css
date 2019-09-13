@@ -47,6 +47,10 @@ body{
     padding: 10px;
 }
 
+.icon-upload-file{
+    height: 24px;
+    width: 24px;
+}
 
 .result-box:hover {
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2), 0px 2px 4px 0px rgba(0,0,0,0.14), 0px 2px 4px 0px rgba(0,0,0,0.12);

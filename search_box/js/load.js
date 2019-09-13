@@ -17,7 +17,8 @@ $(document).ready(function() {
 
     $('#smart-search').keyup(function(){
         $('#dropdown').hide()
-        $('#submit').css('margin-left', '40px')
+        $('#submit').css('margin-left', '10px')
+        $('#upload-file').css('margin-left', '39px')
         $('#smart-search').css('margin-left', '0px')
         $('#result').html('');
         $('#live-search').val('');
@@ -64,19 +65,18 @@ $(document).ready(function() {
     $('div').click(function(){
         document.getElementById('live-search').innerHTML = ''
         $('#dropdown').show()   
-        $('#submit').css('margin-left', '10px')
+        $('#submit').css('margin-left', '9px')
+        $('#upload-file').css('margin-left', '9px')
         $('#smart-search').css('margin-left', '10px')
-        
-        if( $('#div-dropdown').attr('class')==='dropdown open'){
-            $('#result-box').css('border-radius', '40px')
-        }
-
-    })
-
-    $('#dropdown').click(function(){
-        $('#result-box').css('border-radius', '20px')
-        $('#result-box').css('border-bottom-left-radius', 'inherit')
-        $('#result-box').css('border-bottom-right-radius', 'inherit')
+        $(document).ready(function(){
+            if( $('#div-dropdown').attr('class')==='dropdown'){
+                $('#result-box').css('border-radius', '40px')
+            }else {
+                $('#result-box').css('border-radius', '20px')
+                $('#result-box').css('border-bottom-left-radius', 'inherit')
+                $('#result-box').css('border-bottom-right-radius', 'inherit')
+            }
+        })
 
     })
 
@@ -100,7 +100,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: "get",
-                url: "https://a687ebc9.ngrok.io/rest/search/"+ type+ "/" + text,
+                url: "https://6483b56b.ngrok.io/rest/search/"+ type+ "/" + text,
                 success: function(res) {
                     html_count =  '<p>Khoảng ' + res.length + ' kết quả</p>'
                     document.getElementById('info-result').innerHTML = html_count
@@ -269,6 +269,7 @@ $(document).ready(function() {
     $('#upload-file').click(function(){
         $('#result-box').hide()
         $('#smart-search-file').show()
+        $('#show-content').hide()
 
     })
 

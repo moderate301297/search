@@ -20,11 +20,10 @@
 </head>
 
 <body class="body-result">
-    <div id="section"></div>
     <header >
         <nav class="navbar-custom navbar-fixed-top">
             <div>
-                <div class="col-md-4 col-xs-4 col-ms-4">
+                <div class="col-md-4 col-xs-4 col-sm-4">
                     <div class="logo-search">
                         <h3>S</h3>
                         <h3>m</h3>
@@ -50,19 +49,19 @@
                         </ul>
                     </div>
                     <input type="text" id="smart-search" class="result-search-txt" placeholder="Tìm kiếm theo content">
-                    <a id="submit" class="result-search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
                     <a id="upload-file" class="result-search-btn" href="#">
                             <i class="fas fa-upload"></i>
+                    </a>
+                    <a id="submit" class="result-search-btn" href="#">
+                        <i class="fas fa-search"></i>
                     </a>
                     <ul class="list-group" id="live-search"></ul>
                 </div>
                 <div id="smart-search-file" style="display: none">
                     <div class="col-md-4 upload-file">
                         <div class="form-group files  ">
-                          <input type="file" id="smart-search-file" class="custom-file-input" multiple="">
-                        </div>
+                          <input type="file" id="input-smart-search-file" class="custom-file-input " multiple="">
+                    </div>
                     </div>
                 </div>
             </div>
@@ -345,8 +344,7 @@
     <div class="col-md-3"></div>
 
     <div class="info-result" id="info-result"></div>
-    <div>
-        <div class="col-md-1">
+    <div id="show-content">
         <div class="col-md-4 list-info">
             <div id="list-result"></div>
             <div id="pagination" class="col-md-4 navigation"></div>
@@ -356,11 +354,9 @@
                 <div id="content-detail" class="text-family"></div>
             </div>
         </div>
-    </div>
     <div class="col-md-12" id="related">
     </div>
-
-
+    </div>
 
 </body>
 
