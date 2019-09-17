@@ -19,58 +19,64 @@
 </head>
 
 <body class="body-result">
-    <header>
-        <nav class="navbar-custom">
-            <div>
-                <div class="col-md-4 col-xs-4 col-sm-4">
-                    <div class="logo-search">
-                        <h3>S</h3>
-                        <h3>m</h3>
-                        <h3>a</h3>
-                        <h3>r</h3>
-                        <h3>t</h3>
-                        <h3 style="color: blue">S</h3>
-                        <h3 style="color: red">e</h3>
-                        <h3 style="color: #ffbf00">a</h3>
-                        <h3 style="color: blue">r</h3>
-                        <h3 style="color: green">c</h3>
-                        <h3 style="color: red">h</h3>
-                    </div>
-                </div>
-                <div id="result-box" class="result-box">
-                    <div id="div-dropdown" class="dropdown">
-                        <span id="dropdown" class="dropdown-toggle result-type-search-btn" type="button"
-                            data-toggle="dropdown">
-                            <span class="caret"></span></span>
-                        <ul id="result-box-ul" class="dropdown-menu ul-type-search result-box-ul">
-                            <li><a class="type-search" name="fuzzy" href="#">Tìm kiếm theo fuzzy</a></li>
-                            <li><a class="type-search" name="content" href="#">Tìm kiếm theo content</a></li>
-
-                        </ul>
-                    </div>
-                    <input type="text" id="smart-search" class="result-search-txt" placeholder="Tìm kiếm theo content">
-                    <a id="upload-file" class="result-search-btn" href="#">
-                        <i class="fas fa-upload"></i>
-                    </a>
-                    <a id="submit" class="result-search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <ul class="list-group" id="live-search"></ul>
-                </div>
-                <div id="smart-search-file" style="display: none">
-                    <div class="upload-file">
-                        <div class="form-group files  ">
-                            <input type="file" id="input-smart-search-file" class="custom-file-input " multiple="">
+    <div>
+        <header>
+            <nav class="navbar-custom navbar-fixed-top">
+                <div>
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <div class="logo-search">
+                            <h3>S</h3>
+                            <h3>m</h3>
+                            <h3>a</h3>
+                            <h3>r</h3>
+                            <h3>t</h3>
+                            <h3 style="color: blue">S</h3>
+                            <h3 style="color: red">e</h3>
+                            <h3 style="color: #ffbf00">a</h3>
+                            <h3 style="color: blue">r</h3>
+                            <h3 style="color: green">c</h3>
+                            <h3 style="color: red">h</h3>
                         </div>
                     </div>
-                </div>
+                    <div id="result-box" class="result-box">
+                        <div id="div-dropdown" class="dropdown">
+                            <span id="dropdown" class="dropdown-toggle result-type-search-btn" type="button"
+                                data-toggle="dropdown">
+                                <span class="caret"></span></span>
+                            <ul id="result-box-ul" class="dropdown-menu ul-type-search result-box-ul">
+                                <li><a class="type-search" name="content" href="#">Tìm kiếm theo content</a></li>
+                                <li><a class="type-search" name="name" href="#">Tìm kiếm theo Tên</a></li>
+                                <li><a class="type-search" name="id_card" href="#">Tìm kiếm theo Chứng minh thư</a></li>
+                                <li><a class="type-search" name="address" href="#">Tìm kiếm theo Nơi cư trú</a></li>
+                                <li><a class="type-search" name="content" href="#">Tìm kiếm theo Nợ phải trả</a></li>
 
-            </div>
-        </nav>
-    </header>
+                            </ul>
+                        </div>
+                        <input type="text" id="smart-search" class="result-search-txt"
+                            placeholder="Tìm kiếm theo content">
+                        <a id="upload-file" class="result-search-btn" href="#">
+                            <i class="fas fa-upload"></i>
+                        </a>
+                        <a id="submit" class="result-search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <ul class="list-group list-live-search" id="live-search"></ul>
+                    </div>
+                    <div id="smart-search-file" style="display: none">
+                        <div class="upload-file">
+                            <div class="form-group files  ">
+                                <input type="file" id="input-smart-search-file" class="custom-file-input ">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+    </div>
+
 
     <br>
-
     <div class="col-md-3"></div>
     <div id="text-check" class="col-md-6" style="display:none">
         <div class="body-box">
@@ -348,14 +354,13 @@
     <div id="show-content">
         <div class="col-md-4 list-info">
             <div id="list-result"></div>
+            <div id="related"></div>
             <div id="pagination" class="col-md-4 navigation"></div>
         </div>
         <div class="col-md-8">
             <div>
                 <div id="content-detail" class="text-family"></div>
             </div>
-        </div>
-        <div class="col-md-12" id="related">
         </div>
     </div>
 

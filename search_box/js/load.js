@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var type_search = "content";
-    $.ajaxSetup({ cache: false });
+    // $.ajaxSetup({ cache: false });
 
     $('.type-search').click(function () {
         $('#smart-search').attr('placeholder', 'Tìm kiếm theo ' + this.name)
@@ -31,20 +31,17 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify({ "mgs": "đại hội" }),
+                data: JSON.stringify({ "mgs": $('#smart-search').val() }),
                 dataType: 'json',
                 cache: false,
-                url: "http://192.168.1.83:5003/check",
+                url: "http://45.119.81.89:5002/related",
                 success: function (res) {
-                    console.log(res)
-
                     document.getElementById('live-search').innerHTML = ''
                     $.each(res, function (key, value) {
-                        if (value.data.search(expression) != -1) {
-                            $('#live-search').append('<li class="list-group-item link-class"> ' + value.data + '</li>');
+                        if (value.search_related.search(expression) != -1) {
+                            $('#live-search').append('<li class="list-group-item link-class"> ' + value.search_related + '</li>');
                         }
                     })
-
                 }
             })
 
@@ -55,18 +52,20 @@ $(document).ready(function () {
             var click_text = $(this).text().split('|');
             $('#smart-search').val($.trim(click_text[0]));
             $("#live-search").html('');
+            $('#related').show()
+
         });
 
 
 
     })
 
-    $('div').click(function () {
+    $('body').click(function () {
         document.getElementById('live-search').innerHTML = ''
         $('#dropdown').show()
         $('#submit').css('margin-left', '9px')
-        $('#upload-file').css('margin-left', '9px')
-        $('#smart-search').css('margin-left', '10px')
+        $('#upload-file').css('margin-left', '10px')
+        // $('#smart-search').css('margin-left', '5px')
         $(document).ready(function () {
             if ($('#div-dropdown').attr('class') === 'dropdown') {
                 $('#result-box').css('border-radius', '40px')
@@ -83,13 +82,16 @@ $(document).ready(function () {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             smartSearch(type_search, $('#smart-search').val())
-            // loadRelated($('#smart-search').val())
+            $('#related').show()
+            loadRelated($('#smart-search').val())
         }
     });
 
     $('#submit').click(function () {
         smartSearch(type_search, $('#smart-search').val())
-        // loadRelated($('#smart-search').val())
+        $('#related').show()
+        loadRelated($('#smart-search').val())
+
     })
 
     function smartSearch(type, text) {
@@ -99,12 +101,13 @@ $(document).ready(function () {
         } else {
             $.ajax({
                 type: "get",
-                url: "https://6483b56b.ngrok.io/rest/search/" + type + "/" + text,
+                url: "http://45.119.81.89:8090/rest/search/" + type + "/" + text,
                 success: function (res) {
-                    html_count = '<p>Khoảng ' + res.length + ' kết quả</p>'
+                    html_count = '<p id="p-info-result">Khoảng ' + res.length + ' kết quả</p>'
                     document.getElementById('info-result').innerHTML = html_count
+
                     if (res.length === 0) {
-                        var html = 'không có kết quả thỏa mãn'
+                        var html = '<p id="p-info-result">không có kết quả thỏa mãn</p>'
                         document.getElementById('list-result').innerHTML = html
 
                     } else {
@@ -127,7 +130,7 @@ $(document).ready(function () {
             for (i = value; i < value + 10; i++) {
                 html += '<div id="item' + i + '" class="info-search">'
                 html += '<div id="title-result" ><a href="#">' + res[i].content + '</a></div>'
-                html += '<div class="head-result" ><p>' + res[i].tag + '</p></div>'
+                html += '<div class="head-result" ><p>' + res[i].url + '</p></div>'
                 html += '<div class="space-result"><br></div></div>'
             }
         } else {
@@ -135,7 +138,7 @@ $(document).ready(function () {
 
                 html += '<div id="item' + i + '" class="info-search">'
                 html += '<div id="title-result" ><a href="#">' + res[i].content + '</a></div>'
-                html += '<div class="head-result" ><p>' + res[i].tag + '</p></div>'
+                html += '<div class="head-result" ><p>' + res[i].url + '</p></div>'
                 html += '<div class="space-result"><br></div></div>'
             }
         }
@@ -152,7 +155,7 @@ $(document).ready(function () {
                 html += '<div class="scrollbar" id="style-7">'
                 html += '<div class="force-overflow">'
 
-                html += res[i].content
+                html += '<pre class="pre-content-detail">' + res[i].content + '</pre>'
 
                 html += '</div></div>'
                 document.getElementById('content-detail').innerHTML = html
@@ -193,7 +196,7 @@ $(document).ready(function () {
         } else {
             jsonLength = parseInt(res.length / 10)
         }
-
+        console.log(value)
         if (parseInt(value) == 1) {
             $("#pagination-left").attr("name", 1);
             $('#pagination-right').attr("name", 2);
@@ -235,111 +238,123 @@ $(document).ready(function () {
         }
 
     }
-    // function loadRelated(value){
-    //     var res = [
-    //         {"related": 'dai duong'},
-    //         {"related": 'dai duong2'},
-    //         {"related": 'dai duong3'},
-    //         {"related": 'dai duong4'},
-    //         {"related": 'dai duong5'},
-    //         {"related": 'dai duong6'},
-    //     ]
-    //     var html ='';
-    //     html += '<div id="title-result" class="col-md-1" ></div>'
-    //     html += '<div class="col-md-4">'
-    //     html += '<div><h3>Searches related to<b> '+value+'</b></h3></div>'
-    //     for (i = 0; i < res.length ; i+=3) {
-    //         html += '<div class="col-md-6">'
-    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i].related + '</a></p></div>'
-    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i+1].related + '</a></p></div>'
-    //         html += '<div id="title-result" class="related" ><b><a class="related-search" href="#">' + res[i+2].related + '</a></p></div>'
-    //         html += '</div>'
-    //     }
-    //     html += '</div>'
-    //     html += '<div id="title-result" class="col-md-7" ></div>'
-    //     document.getElementById('related').innerHTML = html
+    function loadRelated(value) {
 
-    //     $('.related-search').click(function(){
-    //         $('#smart-search').val(this.text)
-    //         smartSearch(type_search, this.text)
-    //     })
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ "mgs": $('#smart-search').val() }),
+            dataType: 'json',
+            cache: false,
+            url: "http://45.119.81.89:5002/related",
+            success: function (res) {
+                var html = '<br>';
+                html += '<div id="title-result" class="col-md-1" ></div>'
+                html += '<div>'
+                html += '<div>Searches related to<b> ' + value + '</b></div>'
+                html += '<div class="col-md-2"></div>'
+                for (i = 0; i < res.length; i += 3) {
+                    html += '<div class="col-md-5">'
+                    html += '<div class="related" ><b><a class="related-search" href="#">' + res[i].search_related + '</a></p></div>'
+                    html += '<div class="related" ><b><a class="related-search" href="#">' + res[i + 1].search_related + '</a></p></div>'
+                    html += '<div class="related" ><b><a class="related-search" href="#">' + res[i + 2].search_related + '</a></p></div>'
+                    html += '</div>'
+                }
+                html += '</div>'
+                document.getElementById('related').innerHTML = html
 
-    // }
+                $('.related-search').click(function () {
+                    $('#smart-search').val(this.text)
+                    smartSearch(type_search, this.text)
+                })
+            },
+            error: function (e) {
+                console.log('error      ' + e)
+            }
+
+
+        })
+
+
+
+
+    }
 
 
     $('#upload-file').click(function () {
         $('#result-box').hide()
         $('#smart-search-file').show()
+
+    })
+
+    var arr = '';
+    var file_search
+    // var file
+    $('#input-smart-search-file').change(function (e) {
         $('#show-content').hide()
+        $('#p-info-result').hide()
+        $('#displayCheck').show()
+        $('#select-box').show()
+        file_search = this.files[0]
+        // file = e.target.files[0];
+        // var reader = new FileReader();
+        // var csv = reader.result.split(',');
+        // reader.readAsText(file)
+    })
+
+    $('#submit-search-file').click(function () {
+        $('#text-check').hide()
+        $('#related').hide()
+        $('#result-box').show()
+        $('#smart-search-file').hide()
+        $('#show-content').show()
+        arr = '';
+        for (i = 1; i < 12; i++) {
+            arr += $('#sel' + i).val()
+            if (i != 11) {
+                arr += ','
+            }
+        }
+
+        var formData = new FormData();
+        formData.append('files', file_search);
+        if (arr != '0,0,0,0,0,0,0,0,0,0,0') {
+            formData.append('arr', arr);
+        }
+
+        $.ajax({
+            type: "POST",
+            // contentType: "application/json",
+            data: formData,
+            processData: false,
+            contentType: false,
+            // dataType: 'json',
+            cache: false,
+            url: "http://45.119.81.89:5000/",
+            success: function (res) {
+                html_count = '<p id="p-info-result">Khoảng ' + res.length + ' kết quả</p>'
+                document.getElementById('info-result').innerHTML = html_count
+
+                if (res.length === 0) {
+                    var html = '<p id="p-info-result">không có kết quả thỏa mãn</p>'
+                    document.getElementById('list-result').innerHTML = html
+                } else {
+                    pagtination(res, 1);
+                    loadSearch(res, 1)
+                    loadDetail(res)
+                }
+
+            },
+            error: function (e) {
+
+            }
+
+
+        })
 
     })
 
-    $(document).ready(function () {
-        var arr = '';
-        var file_search
-        var file
-        $('#input-smart-search-file').change(function (e) {
-            $('#displayCheck').show()
-            $('#select-box').show()
-            file_search = this.files[0]
-            file = e.target.files[0];
-            var reader = new FileReader();
-            // var csv = reader.result.split(',');
-            reader.readAsText(file)
-        })
-
-        $('#submit-search-file').click(function () {
-            $('#text-check').hide()
-            $('#result-box').show()
-            $('#smart-search-file').hide()
-            $('#show-content').show()
-            for (i = 1; i < 12; i++) {
-                arr += $('#sel' + i).val()
-                if (i != 11) {
-                    arr += ','
-                }
-            }
-            var formData = new FormData();
-            formData.append('files', file_search);
-            if (arr != '0,0,0,0,0,0,0,0,0,0,0') {
-                formData.append('arr', arr);
-            }
-
-            $.ajax({
-                type: "POST",
-                // contentType: "application/json",
-                data: formData,
-                processData: false,
-                contentType: false,
-                // dataType: 'json',
-                cache: false,
-                url: "http://45.119.81.89:5000/",
-                success: function (res) {
-                    html_count = '<p>Khoảng ' + res.length + ' kết quả</p>'
-                    document.getElementById('info-result').innerHTML = html_count
-
-                    if (res.length === 0) {
-                        var html = 'không có kết quả thỏa mãn'
-                        document.getElementById('list-result').innerHTML = html
-                    } else {
-                        pagtination(res, 1);
-                        loadSearch(res, 1)
-                        loadDetail(res)
-                    }
-
-                },
-                error: function (e) {
-                    console.log('error      ' + e)
-                }
-
-
-            })
-
-        })
-
-        $('#smart-search-file').change(function (e) {
-            $("#text-check").show()
-        })
+    $('#smart-search-file').change(function (e) {
+        $("#text-check").show()
     })
-
 })
