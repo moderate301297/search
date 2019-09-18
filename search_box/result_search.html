@@ -24,7 +24,7 @@
             <nav class="navbar-custom navbar-fixed-top">
                 <div>
                     <div class="col-md-4 col-xs-4 col-sm-4">
-                        <div class="logo-search">
+                        <div id="logo-search" class="logo-search">
                             <h3>S</h3>
                             <h3>m</h3>
                             <h3>a</h3>
@@ -44,16 +44,53 @@
                                 data-toggle="dropdown">
                                 <span class="caret"></span></span>
                             <ul id="result-box-ul" class="dropdown-menu ul-type-search result-box-ul">
-                                <li><a class="type-search" name="content" href="#">Tìm kiếm theo content</a></li>
-                                <li><a class="type-search" name="name" href="#">Tìm kiếm theo Tên</a></li>
-                                <li><a class="type-search" name="id_card" href="#">Tìm kiếm theo Chứng minh thư</a></li>
-                                <li><a class="type-search" name="address" href="#">Tìm kiếm theo Nơi cư trú</a></li>
-                                <li><a class="type-search" name="content" href="#">Tìm kiếm theo Nợ phải trả</a></li>
+
+                                <li>
+                                    <div class="col-md-6">
+                                        <p class="title-detail">Tìm kiếm trên các trường</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input id="checkbox-search" type="checkbox" class="filled-in" value=1  />
+                                        <p>&nbsp</p>
+                                    </div>
+                                </li>
+
+                                <li class="check-li" style="display: none">
+                                    <div class="col-md-6">
+                                        <p class="title-detail">nhận xét</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="range" id="input-content" name="points" min="0" max="10" value="1"
+                                            step="0.1">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p id="content-number" class="number-detail">1</p>
+                                    </div>
+                                </li>
+
+                                <li class="check-li" style="display: none">
+                                    <div class="col-md-6">
+                                        <p class="title-detail">Tên</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="range" id="input-name" name="points" min="0" max="10" step="0.1"
+                                            value="1">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p id="name-number" class="number-detail">1</p>
+                                    </div>
+                                </li>
+
+
 
                             </ul>
                         </div>
-                        <input type="text" id="smart-search" class="result-search-txt"
-                            placeholder="Tìm kiếm theo content">
+                        <input type="text" id="smart-search-content" class="result-search-txt"
+                            placeholder="Tìm kiếm theo nội dung">
                         <a id="upload-file" class="result-search-btn" href="#">
                             <i class="fas fa-upload"></i>
                         </a>
@@ -67,9 +104,9 @@
                             <div class="form-group files  ">
                                 <input type="file" id="input-smart-search-file" class="custom-file-input ">
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </nav>
         </header>
@@ -84,261 +121,165 @@
                 <div class="col-md-6 box-left">
                     <br>
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Loại đối tượng vay
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel9">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel1" name="points" min="0" max="10" step="0.1">
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <p id="sel1-number" class="number-detail">5</p>
+                        </div>
                     </div>
+
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Chênh lệch thu chi
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel1">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel2" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel2-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Tình hình tài sản
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel2">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel3" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel3-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Công nợ
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel3">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel4" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel4-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Thu nhập thuần
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel4">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel5" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel5-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Tổng vốn nhu cầu
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel5">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel6" name="points" min="0" max="10" step="0.1">
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <p id="sel6-number" class="number-detail">5</p>
+                        </div>
                     </div>
-                    <div>
-                    </div>
+
 
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-6 box-right">
                     <br>
+
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Đóng góp
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel6">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel7" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel7-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Đề nghị vay
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel7">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel8" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel8-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Thời hạn
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel8">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel9" name="points" min="0" max="10" step="0.1">
                             </div>
+                        </div>
+                        <div class="col-md-1">
+                            <p id="sel9-number" class="number-detail">5</p>
                         </div>
                     </div>
 
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             TSTC
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel10">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel10" name="points" min="0" max="10" step="0.1">
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <p id="sel10-number" class="number-detail">5</p>
+                        </div>
                     </div>
+
                     <div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             Nhận xét
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="sel11">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
+                                <input type="range" id="sel11" name="points" min="0" max="10" step="0.1">
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <p id="sel11-number" class="number-detail">5</p>
+                        </div>
                     </div>
+
                     <button id="submit-search-file" type="button" class="btn btn-primary button-left">Sumbit</button>
                 </div>
             </div>
@@ -363,7 +304,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
